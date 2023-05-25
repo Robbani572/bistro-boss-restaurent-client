@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+    --primary: hsla(350, 17%, 14%, 0.65);
+    --primary-dark: hsla(347, 100%, 4%, 0.65);
+}
+
+
+
+.bg-category-info{
+    background-image: url('./assets/images/home/chef-service1.jpg');
+    
+}
+
+.bg-menu{
+    background-image: url('./assets//images/home/menu-bg.png');
+}
+
+.bg-featured{
+    background-image: linear-gradient(135deg, var(--primary), var(--primary-dark)),
+                        url('./assets/images/home/featured.jpg');
+    background-repeat: no-repeat;
+}
