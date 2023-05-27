@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
 
     const navItems = <>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/menu">Our Menu</Link></li>
-        <li><Link to="/order/salad">Order Food</Link></li>
+        <li className="hover:text-[#BB8506] font-semibold md:text-xl uppercase"><Link to="/">Home</Link></li>
+        <li className="hover:text-[#BB8506] font-semibold md:text-xl uppercase"><Link to="/menu">Our Menu</Link></li>
+        <li className="hover:text-[#BB8506] font-semibold md:text-xl uppercase"><Link to="/order/salad">Order Food</Link></li>
     </>
 
     return (
@@ -27,7 +27,8 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn">Get started</a>
+                <Link to="/login"><button className="btn btn-outline hover:border-[#BB8506] border-2 border-[#BB8506] text-white hover:bg-[#BB8506]">Login</button></Link>
+
             </div>
         </div>
     );

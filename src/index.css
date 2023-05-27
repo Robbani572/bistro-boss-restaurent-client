@@ -23,3 +23,11 @@
                         url('./assets/images/home/featured.jpg');
     background-repeat: no-repeat;
 }
+
+.bg-login{
+    background-image: url('./assets/images/others/authentication.png');
+}
+
+.bg-login-card{
+    background-image: url('./assets/images/others/authentication.png');
+}

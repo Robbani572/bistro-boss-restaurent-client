@@ -2,7 +2,6 @@ import MenuCover from "../Shared/MenuCover/MenuCover";
 import orderImg from "../../assets/images/shop/order-bg.jpg"
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import useMenu from "../../hooks/UseMenu/useMenu";
-import MenuCard from "../Shared/MenuCard/MenuCard";
 import OrderTab from "./OrderTab";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
