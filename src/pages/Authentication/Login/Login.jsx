@@ -1,14 +1,26 @@
 import { Link } from "react-router-dom";
 import loginImg from "../../../assets/images/others/authentication2.png"
+import { useContext } from "react";
+import { AuthContext } from "../../../providers/AuthProvider";
+import { Result } from "postcss";
 
 
 const Login = () => {
 
+    const {loginUser} = useContext(AuthContext)
+
     const handleLogin = event => {
         event.preventDefault();
         const form = event.target;
-        const eamil = form.email.value;
+        const email = form.email.value;
         const password = form.password.value;
+
+        loginUser(email, password).then(result => {
+            const loggedUser = result.user;
+            console.log(loggedUser)
+        }).catch(error => {
+            console.log(error)
+        })
     }
 
     return (
@@ -19,7 +31,7 @@ const Login = () => {
                 </div>
                 <div className="card flex-shrink-0 w-full rounded-none max-w-lg">
                     <h1 className="text-5xl text-[#BB8506] font-bold text-center mt-10">Login</h1>
-                    <form className="card-body mt-8">
+                    <form onSubmit={handleLogin} className="card-body mt-8">
                         <div className="form-control">
                             <input type="email" name="email" placeholder="Email" className="input input-bordered bg-opacity-20 text-xl font-semibold border-0 border-b-2 rounded-none focus:outline-0" />
                         </div>
