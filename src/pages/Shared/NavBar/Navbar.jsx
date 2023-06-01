@@ -1,11 +1,31 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../providers/AuthProvider";
+import { FaShoppingCart } from "react-icons/fa";
+import useCart from "../../../hooks/useCart/useCart";
+
 
 const Navbar = () => {
+
+    const { user, logOutUser } = useContext(AuthContext)
+    const [cart, refetch] = useCart()
+
+    const handleLogOut = () => {
+        logOutUser()
+    }
 
     const navItems = <>
         <li className="hover:text-[#BB8506] font-semibold md:text-xl uppercase"><Link to="/">Home</Link></li>
         <li className="hover:text-[#BB8506] font-semibold md:text-xl uppercase"><Link to="/menu">Our Menu</Link></li>
         <li className="hover:text-[#BB8506] font-semibold md:text-xl uppercase"><Link to="/order/salad">Order Food</Link></li>
+        <li>
+            <Link to="/dashboard/mycart">
+                <button className="hover:text-[#BB8506] font-semibold md:text-xl uppercase flex gap-2">
+                        <FaShoppingCart></FaShoppingCart>
+                    <div className="badge bg-[#BB8506]">+{cart?.length || 0}</div>
+                </button>
+            </Link>
+        </li>
     </>
 
     return (
@@ -27,7 +47,10 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link to="/login"><button className="btn btn-outline hover:border-[#BB8506] border-2 border-[#BB8506] text-white hover:bg-[#BB8506]">Login</button></Link>
+                {
+                    user ? <button onClick={handleLogOut} className="btn btn-outline hover:border-[#BB8506] border-2 border-[#BB8506] text-white hover:bg-[#BB8506]">Log out</button> : <Link to="/login"><button className="btn btn-outline hover:border-[#BB8506] border-2 border-[#BB8506] text-white hover:bg-[#BB8506]">Login</button></Link>
+
+                }
 
             </div>
         </div>
